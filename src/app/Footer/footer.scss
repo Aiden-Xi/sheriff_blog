@@ -1,0 +1,11 @@
+@charset "UTF-8";
+@import "../../styles/constant";
+
+.footer--wrap {
+  padding: 50px 0px;
+  background-color: $first-gray;
+  p {
+    margin: 0 auto;
+    text-align: center;
+  }
+}

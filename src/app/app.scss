@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@import "../styles/constant";
+.app--wrap {
+    //height: 100%;
+    >button {
+        width: 40px;
+        height: 40px;
+        border: none;
+        opacity: 0.5;
+        display: block;
+        margin: auto;
+
+        >i {
+            font-size: 40px;
+
+        }
+    }
+    .main--wrap {
+        margin: 100px 50px 30px 50px;
+        box-shadow: 0 5px 20px $second-menu-gray;
+        padding: 20px;
+        //height: 100%;
+
+    }
+}
