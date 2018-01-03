@@ -5,7 +5,7 @@ import {render} from 'react-dom'
 
 const stores = {}
 
-const routes = {
+const routeConfig = {
     childRoutes: [
         {
             path: '/',
@@ -18,8 +18,7 @@ const routes = {
 }
 
 render(
-    <Router routes={routes} history={browserHistory}/>
-    ,
+    <Router routes={routeConfig} history={browserHistory}/>,
     document.getElementById('root')
 )
 

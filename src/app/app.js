@@ -33,9 +33,9 @@ class App extends React.Component {
         if (!this.props.children) {
             const user_session_key = Cookies.get('user_session_key')
             if (user_session_key) {
-                this.context.router.push('/student_list')
+                this.context.router.push('/home')
             } else {
-                this.context.router.push(`/login`)
+                this.context.router.push(`/home`)
             }
             console.log('cookies =========', Cookies.get('user_session_key'))
         }

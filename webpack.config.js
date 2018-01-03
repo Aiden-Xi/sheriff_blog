@@ -1,7 +1,6 @@
 const path = require('path');
 
 //__dirname是node.js中的一个全局变量，它指向当前执行脚本所在的目录
-
 module.exports = {
     devtool: 'eval-source-map',
     entry:  __dirname + "/src/index.js",
