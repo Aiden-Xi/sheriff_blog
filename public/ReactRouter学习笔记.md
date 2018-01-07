@@ -28,6 +28,7 @@
     }, document.body)
     ```
   实例： route原生数组对象
+  
   ```
   const routeConfig = [
     { path: '/',

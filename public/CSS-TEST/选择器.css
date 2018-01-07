@@ -1,0 +1,29 @@
+/*body { background-image: url(/Users/xixiaoyu/sheriff_blog/src/images/blog_banner.png);}*/
+/*1. 设置背景颜色跟背景图片的颜色一样，可以防止上下滚动出现异样的颜色
+2.   background-attachment:fixed; 可以声明图像相对于可视区是固定的（fixed）*/
+body {
+  background-color: rgb(66, 69, 88);
+  background-image: url(../../src/images/blog_banner.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  font-family: 'Monaco';
+}
+div.div1 h1 + p { color: red }
+div.div1 > h1 { color: blue }
+
+div.div2 li + li { color: red }
+
+div.div3 #id1 { color: blue }
+
+div.div4 { background-color: red; }
+div.div4 p.important { font-style: italic; color: blue; }
+div.div4 p.warning { font-weight: bold; color: green; }
+div.div4 p.warning.important { background: green; color: yellow; }
+
+
+*[lang|="en"] {color: red;}
+
+div.div5 p.spread { word-spacing: 2em; letter-spacing: 0.5em; text-transform: capitalize; text-decoration: blink;}
+div.div5 p.tight { word-spacing: -0.1em; letter-spacing: 0.5em; text-decoration: line-through wavy blue; direction: rtl;}
+div.div5 a { color: yellow; text-decoration: none;}
