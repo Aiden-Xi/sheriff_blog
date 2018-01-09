@@ -144,3 +144,74 @@ This is a paragraph
         | pre-wrap   | 保留       | 保留   |允许      |
 
 + 文本方向 [direction](http://www.w3school.com.cn/cssref/pr_text_direction.asp) 默认值有两个 ltr（从左到右）  rtl（从右到左）
+##### CSS 文本属性总结
+color	设置文本颜色<br>
+direction	设置文本方向。<br>
+line-height	设置行高。<br>
+letter-spacing	设置字符间距。<br>
+text-align	对齐元素中的文本。<br>
+text-decoration	向文本添加修饰。<br>
+text-indent	缩进元素中文本的首行。<br>
+text-shadow	设置文本阴影。CSS2 包含该属性，但是 CSS2.1 没有保留该属性。<br>
+text-transform	控制元素中的字母。<br>
+unicode-bidi	设置文本方向。<br>
+white-space	设置元素中空白的处理方式。<br>
+word-spacing	设置字间距。<br>
+
+8. [CSS 链接](http://www.w3school.com.cn/css/css_link.asp)
+<br>
+注意事项：
+    + 为了使定义生效，a:hover 必须位于 a:link 和 a:visited 之后！！
+    + 为了使定义生效，a:active 必须位于 a:hover 之后！！
+    <br>
+    ```
+    <style>
+    a:link {color:#FF0000;}    /* 未被访问的链接 */
+    a:visited {color:#00FF00;} /* 已被访问的链接 */
+    a:hover {color:#FF00FF;}   /* 鼠标指针移动到链接上 */
+    a:active {color:#0000FF;}  /* 正在被点击的链接 */
+    </style>
+    ```
+创建高级连接框：
+```
+<!DOCTYPE html>
+
+<style>
+a:link,a:visited
+{
+display:block;
+font-weight:bold;
+font-size:14px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+background-color:#98bf21;
+width:120px;
+text-align:center;
+padding:4px;
+text-decoration:none;
+}
+
+a:hover,a:active
+{
+background-color:#7A991A;
+}
+</style>
+
+ [W3School](/index.html)
+
+```
+
+9. [CSS 列表](http://www.w3school.com.cn/css/css_list.asp) CSS 列表属性允许你放置、改变列表项标志，或者将图像作为列表项标志. <font color="red">ul无序列表， ol有序列表，在有序列表中根据type属性设置序号</font>
++ 列表类型，使用属性： [list-style-type](http://www.w3school.com.cn/cssref/pr_list-style-type.asp)进行设置。所属值：（disc, circle, square, none）
++ 列表图像，使用属性： [list-style-image](http://www.w3school.com.cn/cssref/pr_list-style-image.asp)进行设置。
++ 列表标志位置，使用属性：[list-style-position](http://www.w3school.com.cn/cssref/pr_list-style-position.asp)进行设置。所属值：（inside, outside, none）
+
+<font color="red">简写列表样式, list-style 的值可以按任何顺序列出，而且这些值都可以忽略。只要提供了一个值，其它的就会填入其默认值。
+</font>
+```
+li {list-style : url(example.gif) square inside}
+```
++ [所有列表样式类型](http://www.w3school.com.cn/tiy/t.asp?f=csse_list-style-type_all)
+
+10. [CSS 表格](http://www.w3school.com.cn/css/css_table.asp) 表格属性可以帮助您极大地改善表格的外观。
++ 表格边框（border）
