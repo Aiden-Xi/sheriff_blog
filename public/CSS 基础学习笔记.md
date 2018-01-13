@@ -254,3 +254,40 @@ border-top-width	设置元素的上边框的宽度。<br>
 <br>
 [CSS 外边距合并](http://www.w3school.com.cn/css/css_margin_collapsing.asp): 外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。
 合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。
+
+13. [display属性](http://www.w3school.com.cn/cssref/pr_class_display.asp)
+<br>几个重要的特点解释：<br>
++ display:block的特点：<br>
+1、block元素会独占一行，多个block元素会各自新起一行。默认情况下，block元素宽度自动填满其父元素宽度。<br>
+2、block元素可以设置width,height属性。块级元素即使设置了宽度,仍然是独占一行。<br>
+3、block元素可以设置margin和padding属性。<br>
+
++ display:inline的特点：<br>
+1、inline元素不会独占一行，多个相邻的行内元素会排列在同一行里，直到一行排列不下，才会新换一行，其宽度随元素的内容而变化。<br>
+2、inline元素设置width,height属性无效。<br>
+3、inline元素的margin和padding属性，水平方向的padding-left, padding-right, margin-left, margin-right都产生边距效果；但竖直方向的padding-top, padding-bottom, margin-top, margin-bottom不会产生边距效果。<br>
+
+思考： 由于span是行级元素，所以不能设置其宽度和高度；如果将span设置成block，那么又会自动换行。怎么让多个span在同一行显示，而且能够固定宽度呢？这就需要用到display:inline-block了。<br>
+```
+<head>  
+     <style>  
+         span{  
+            background-color:#43be60;  
+            width:100px;  
+            height:50px;  
+            margin-top:20px;  
+            margin-left:20px;  
+            display:inline-block;  
+         }  
+     </style>  
+</head>  
+
+<body>  
+    <div style="background-color:#ededed;width:400px;height:400px;">  
+         <span>1</span>  
+         <span>10</span>  
+         <span>100</span>  
+         <span>1000</span>  
+    </div>  
+</body>
+```
