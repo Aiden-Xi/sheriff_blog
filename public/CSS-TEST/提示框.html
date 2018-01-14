@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style media="screen" type="text/css">
+        .tooltip {
+            border: none;
+            text-align: center;
+            position: relative;
+            top: 50px;
+            left: 50px;
+            font-size: 16px;
+            color: white;
+            width: 250px;
+            height: 80px;
+            background-color: #4CAF50;
+            display: inline-block;
+        }
+
+        .tooltip:hover {
+            background-color: #4CFA55;
+        }
+
+        .tooltiptext {
+            visibility: hidden;
+            position: absolute;
+            left: 105%;
+            top: 50%;
+            height: 20px;
+            width: 120px;
+            margin-top: -15px;
+            background-color: black;
+            z-index: 1;
+            border-radius: 5px;
+            padding: 5px 0;
+            /*淡入效果*/
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .tooltip:hover .tooltiptext:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent black transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .wrapper {
+            text-transform: uppercase;
+            background: #ececec;
+            color: #555;
+            cursor: help;
+            font-family: "Gill Sans", Impact, sans-serif;
+            font-size: 20px;
+            position: absolute;
+            text-align: center;
+            padding: 20px 10px;
+            width: 200px;
+            height: 20px;
+            top: 400px;
+            left: 400px;
+
+            /*-webkit-transform: translateZ(0);*/
+            /* webkit flicker fix */
+            /*-webkit-font-smoothing: antialiased;*/
+            /* webkit text rendering fix */
+        }
+
+        .wrapper .tooltip {
+            position: relative;
+            width: 100%;
+            background-color: #1496bb;
+            color: #fff;
+            display: block;
+            text-align: center;
+            left: -20px;
+            top: -115px;
+            width: 100%;
+            height: 100%;
+            padding: 20px 20px;
+
+            /*top: -130%;*/
+
+
+
+
+            /*margin-bottom: 15px;*/
+            opacity: 0;
+            transform: opacity 1s;
+
+            /*pointer-events: none;*/
+
+            /*z-index: 1;*/
+            /*transform: translateY(10px);*/
+            /*box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);*/
+        }
+
+        /* This bridges the gap so you can mouse into the tooltip without it disappearing */
+
+        /*.wrapper .tooltip:before {
+            bottom: -20px;
+            content: " ";
+            display: block;
+            height: 20px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }*/
+
+        /* CSS Triangles - see Trevor's post */
+
+        .wrapper .tooltip:after {
+            border-left: solid transparent 10px;
+            border-right: solid transparent 10px;
+            border-top: solid #1496bb 10px;
+            bottom: -10px;
+            content: " ";
+            height: 0;
+            left: 50%;
+            margin-left: -13px;
+            position: absolute;
+            width: 0;
+        }
+
+        .wrapper:hover .tooltip {
+            opacity: 1;
+        }
+
+        /* IE can just show/hide with no transition */
+
+        /*.lte8 .wrapper .tooltip {
+            display: none;
+        }
+
+        .lte8 .wrapper:hover .tooltip {
+            display: block;
+        }*/
+    </style>
+
+</head>
+
+<body>
+    <button class="tooltip">
+        鼠标移动到我这里
+        <span class="tooltiptext">提示文本</span>
+    </button>
+
+  <div class="wrapper">
+    I have a tooltip.
+    <span class="tooltip">I am a tooltip!</span>
+  </div>
+
+</body>
+
+</html>

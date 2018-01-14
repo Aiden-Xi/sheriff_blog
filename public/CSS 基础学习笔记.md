@@ -291,3 +291,32 @@ border-top-width	设置元素的上边框的宽度。<br>
     </div>  
 </body>
 ```
+
+14. [箭头提示工具](http://www.runoob.com/css/css-tooltip.html)<br>
+注意： transparent该值是用于color属性设置背景透明的。设置箭头的时候使用到了 伪类 <font color="red">:after</font>，
+可以在该伪类下进行CSS设置，实例代码：<br>
+```
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* 提示工具底部 */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+```
+
+15. [媒体类型](http://www.runoob.com/css/css-mediatypes.html)<br>
+媒体类型	描述<br>
+all	用于所有的媒体设备。<br>
+aural	用于语音和音频合成器。<br>
+braille	用于盲人用点字法触觉回馈设备。<br>
+embossed	用于分页的盲人用点字法打印机。<br>
+handheld	用于小的手持的设备。<br>
+print	用于打印机。<br>
+projection	用于方案展示，比如幻灯片。<br>
+screen	用于电脑显示器。<br>
+tty	用于使用固定密度字母栅格的媒体，比如电传打字机和终端。<br>
+tv	用于电视机类型的设备。<br>
