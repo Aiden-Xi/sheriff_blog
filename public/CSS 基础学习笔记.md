@@ -319,4 +319,20 @@ print	用于打印机。<br>
 projection	用于方案展示，比如幻灯片。<br>
 screen	用于电脑显示器。<br>
 tty	用于使用固定密度字母栅格的媒体，比如电传打字机和终端。<br>
-tv	用于电视机类型的设备。<br>
+tv	用于电视机类型的设备。<br><br><br>
+16. [所有CSS文本的属性](http://www.runoob.com/css/css-text.html)<br>
+所有CSS文本属性。<br>
+属性	描述<br>
+color	设置文本颜色<br>
+direction	设置文本方向。<br>
+letter-spacing	设置字符间距<br>
+line-height	设置行高<br>
+text-align	对齐元素中的文本<br>
+text-decoration	向文本添加修饰<br>
+text-indent	缩进元素中文本的首行<br>
+text-shadow	设置文本阴影<br>
+text-transform	控制元素中的字母<br>
+unicode-bidi	设置或返回文本是否被重写<br>
+vertical-align	设置元素的垂直对齐<br>
+white-space	设置元素中空白的处理方式<br>
+word-spacing	设置字间距<br>
