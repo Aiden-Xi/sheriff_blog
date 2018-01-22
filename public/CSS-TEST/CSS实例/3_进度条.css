@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding-left: 20px;
+}
+
+h1 {
+    padding: 20px 0;
+}
+
+p.tital {
+    padding: 10px 0;
+}
+
+div.container {
+    background: #ddd;
+    width: 50%;
+    height: 40px;
+}
+
+.skills {
+  text-align: right;
+  padding-right: 20px;
+  line-height: 40px;
+  color: white;
+}
+
+.html {
+    background-color: red;
+    width: 90%;
+}
+
+.css {
+    background-color: green;
+    width: 70%;
+}
+
+.jquery {
+    background-color: yellow;
+    width: 50%;
+}
+
+.ruby {
+    background-color: blue;
+    width: 60%;
+}
+
+div.font a {
+    text-decoration: none;
+    margin: 0 10px;
+}
