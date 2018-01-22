@@ -80,11 +80,11 @@ ul#skill {
     -webkit-animation: wordpress 2s ease-out;
     background-color: #66b3cc;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#66b3cc), to(#5da3ba));
-    background-image: -webkit-linear-gradient(top, #66b3cc, #5da3ba);
-    background-image: -moz-linear-gradient(top, #66b3cc, #5da3ba);
-    background-image: -ms-linear-gradient(top, #66b3cc, #5da3ba);
-    background-image: -o-linear-gradient(top, #66b3cc, #5da3ba);
-    background-image: linear-gradient(top, #66b3cc, #5da3ba)
+    background-image: -webkit-linear-gradient(top, #99CC33, #FF6666,#336699,#FF0033);
+    background-image: -moz-linear-gradient(top, #99CC33, #FF6666,#336699,#FF0033);
+    background-image: -ms-linear-gradient(top, #99CC33, #FF6666,#336699,#FF0033);
+    background-image: -o-linear-gradient(top, #99CC33, #FF6666,#336699,#FF0033);
+    background-image: linear-gradient(top, #99CC33, #FF6666,#336699,#FF0033)
 }
 
 @-moz-keyframes graphic-design {
