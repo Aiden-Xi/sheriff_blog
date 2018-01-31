@@ -336,3 +336,5 @@ unicode-bidi	设置或返回文本是否被重写<br>
 vertical-align	设置元素的垂直对齐<br>
 white-space	设置元素中空白的处理方式<br>
 word-spacing	设置字间距<br>
+
+17. 按钮的禁用属性 - cursor: not-allowed <br><br>
