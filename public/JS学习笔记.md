@@ -76,27 +76,6 @@ new f();  // 可以正常执行，返回结果 {a: 1}
 在 JavaScript 非严格模式(non-strict mode)下, 如果第一个参数的值是 null 或 undefined, 它将使用全局对象替代。
 ```
 
-7. JavaScript闭包的理解
-
-```
-function outerFunction() {
-    var counter = 0;
-    function innerFunction(){
-        return counter += 1;
-    }
-    return innerFunction;
-    /*
-     注意 typeof innerFunction 是：function；而typeof innerFunction（）是number；
-    */
-}
-var add = outerFunction();
-
-/*
-调用 outerFunction()返回的是内部函数innerFucntion,那么调用几次add()将调用几次
-内部函数inner Function，内部函数公用了counter，所以能够计数,所以说闭包就是将内部嵌套函数变成外部可调用的。
-*/
-
-add();
-add();
-add();
-```
+7. 数字方法
+  - toFixed(x)  保留x位小数  9.182.toFixed(2) = '9.18'
+  - toPrecision(x) 保留x位有效数字  9.182.toPrecision(2) = '9.2'
