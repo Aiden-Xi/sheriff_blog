@@ -5,71 +5,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>LightBox</title>
+  <title>Document</title>
   <link rel="stylesheet" href="lightbox.css">
 </head>
 
 <body>
+  <h2 style="text-align:center">Lightbox</h2>
 
-  <div class="out-container">
-    <h1 id="title">LightBox</h1>
-    <div id="nav-container">
-      <img src="demo1.jpg" onclick="currentIndex(1)">
-      <img src="demo2.jpg" onclick="currentIndex(2)">
-      <img src="demo3.jpg" onclick="currentIndex(3)">
-      <img src="demo4.jpg" onclick="currentIndex(4)">
+  <div class="row">
+    <div class="column">
+      <img src="http://static.runoob.com/images/demo/demo1.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
     </div>
-
-    <div id="myModal" class="modal">
-      <span class="close" onclick="closeModal()">&times</span>
-      <div class="modal-content">
-        <div class="mySlides">
-          <img class="bg-img" src="demo1.jpg" alt="Nature and Sunrise1">
-          <div class="numbertext">1 / 4</div>
-        </div>
-        <div class="mySlides">
-          <img class="bg-img" src="demo2.jpg" alt="Nature and Sunrise22">
-          <div class="numbertext">2 / 4</div>
-        </div>
-        <div class="mySlides">
-          <img class="bg-img" src="demo3.jpg" alt="Nature and Sunrise333">
-          <div class="numbertext">3 / 4</div>
-        </div>
-        <div class="mySlides">
-          <img class="bg-img" src="demo4.jpg" alt="Nature and Sunrise4444">
-          <div class="numbertext">4 / 4</div>
-        </div>
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-
-      <div class="bottom-column">
-        <div class="column">
-          <img src="demo1.jpg" alt="" class="demo cursor" onclick="currentIndexImg(1)">
-          <p class="desc">Nature and sunrise1</p>
-        </div>
-        <div class="column">
-          <img src="demo2.jpg" alt="" class="demo cursor" onclick="currentIndexImg(2)">
-          <p class="desc">Nature and sunrise22</p>
-        </div>
-        <div class="column">
-          <img src="demo3.jpg" alt="" class="demo cursor" onclick="currentIndexImg(3)">
-          <p class="desc">Nature and sunrise333</p>
-        </div>
-        <div class="column">
-          <img src="demo4.jpg" alt="" class="demo cursor" onclick="currentIndexImg(4)">
-          <p class="desc">Nature and sunrise4444</p>
-        </div>
-      </div>
-
+    <div class="column">
+      <img src="http://static.runoob.com/images/demo/demo2.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
     </div>
-
+    <div class="column">
+      <img src="http://static.runoob.com/images/demo/demo3.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+    </div>
+    <div class="column">
+      <img src="http://static.runoob.com/images/demo/demo4.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+    </div>
   </div>
 
-  <script type="text/javascript" src="lightbox.js">
-  </script>
+  <div id="myModal" class="modal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
 
+      <div class="mySlides">
+        <div class="numbertext">1 / 4</div>
+        <img src="http://static.runoob.com/images/demo/demo1.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">2 / 4</div>
+        <img src="http://static.runoob.com/images/demo/demo2.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">3 / 4</div>
+        <img src="http://static.runoob.com/images/demo/demo3.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">4 / 4</div>
+        <img src="http://static.runoob.com/images/demo/demo4.jpg" style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+
+
+      <div class="column">
+        <img class="demo cursor" src="http://static.runoob.com/images/demo/demo1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="http://static.runoob.com/images/demo/demo2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Trolltunga, Norway">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="http://static.runoob.com/images/demo/demo3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="http://static.runoob.com/images/demo/demo4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript" src="lightbox.js">
+
+</script>
 </body>
 
 </html>

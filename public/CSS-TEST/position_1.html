@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>布局练习 1</title>
+  <style media="screen">
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      position: relative;
+      margin: 20px 0;
+      border: 2px solid #2175c8;
+      padding: 0 10px;
+      width: 100%;
+    }
+
+    .nav {
+      position: absolute;
+      /* border: 2px solid rgb(57, 79, 194); */
+      max-width: 200px;
+
+    }
+
+    .nav-a {
+      color: rgb(193, 18, 18);
+      text-decoration: none;
+
+    }
+
+    .nav-a:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      /* position: absolute; */
+      margin-left: 200px;
+      top: 0px;
+      /* border: 2px solid rgb(142, 10, 10); */
+
+    }
+
+    .footer {
+      text-align: center;
+      bottom: 0px;
+      width: 100%;
+      /* border: 2px solid rgb(31, 153, 123); */
+      position: absolute;
+
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="nav">
+      <ul>
+        <li><a class="nav-a" href="#">Home_1</a></li>
+        <li><a class="nav-a" href="#">Home_2</a></li>
+        <li><a class="nav-a" href="#">Home_3</a></li>
+        <li><a class="nav-a" href="#">Home_4</a></li>
+        <li><a class="nav-a" href="#">Home_5</a></li>
+        <li><a class="nav-a" href="#">Home_6</a></li>
+      </ul>
+    </div>
+    <div class="section">
+      <p>section 的 margin-left 样式确保了有足够的空间容纳 nav 元素。</p>
+      <div>
+        <p class="more-content">Lorem is quis diam velit.</p>
+        <p>section 的 margin-left 样式确保了有足够的空间容纳 nav 元素。</p>
+        <p>section 的 margin-left 样式确保了有足够的空间容纳 nav 元素。</p>
+        <p>section 的 margin-left 样式确保了有足够的空间容纳 nav 元素。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>如果你使用了一个固定定位的页眉或页脚，确保有足够的空间来显示它们!</p>
+  </div>
+</body>
+
+</html>
