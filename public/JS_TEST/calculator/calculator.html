@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="calculator.css">
+</head>
+
+<body>
+  <div class="container">
+    <form class="flex">
+      <input type="button" value="C" class="btn clear" onclick="clearAll()">
+      <input type="text" value="" id="write" class="write">
+      <input type="button" value="7" class="btn number">
+      <input type="button" value="8" class="btn number">
+      <input type="button" value="9" class="btn number">
+      <input type="button" value="+" class="btn add">
+      <input type="button" value="4" class="btn number">
+      <input type="button" value="5" class="btn number">
+      <input type="button" value="6" class="btn number">
+      <input type="button" value="*" class="btn mul">
+      <input type="button" value="1" class="btn number">
+      <input type="button" value="2" class="btn number">
+      <input type="button" value="3" class="btn number">
+      <input type="button" value="-" class="btn del">
+      <input type="button" value="0" class="btn number">
+      <input type="button" value="." class="btn point">
+      <input type="button" value="/" class="btn divi">
+      <input type="button" value="=" class="btn equal" onclick="equalCal()">
+    </form>
+  </div>
+
+  <script type="text/javascript" src="calculator.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+* {
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  width: 30%;
+  margin-left: 35%;
+  /* background: rgb(63, 76, 110); */
+  margin-top: 100px;
+}
+
+.flex {
+  background-color: #495678;
+  box-shadow: 4px 4px #3d4a65;
+  margin: 40px auto;
+  padding: 40px 0 30px 20px;
+  width: 280px;
+  border-radius: 15px;
+}
+
+.btn {
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+  height: 45px;
+  margin: 5px 0 5px 10px;
+  width: 45px;
+}
+
+.btn, .write {
+  border-radius: 25px;
+  box-shadow: inset 1px 2px 0px #3facc0;
+}
+
+.btn:first-child {
+  background: rgb(222, 121, 67);
+  box-shadow: inset 1px 2px 0 red;
+}
+
+.btn:last-child {
+  background: rgb(222, 121, 67);
+  box-shadow: inset 1px 2px 0 red;
+}
+
+.btn:first-child {
+  margin: 5px 0 5px 10px;
+}
+
+.write {
+  height: 45px;
+  width: 170px;
+  text-align: right;
+  font-size: 25px;
+  padding-right: 10px;
+  background: rgb(141, 203, 215);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+.number:active {
+  box-shadow: 0 2px #5f6680;
+  -webkit-transform: translateY(2px);
+  -ms-transform: translateY(2px);
+  -moz-tranform: translateY(2px);
+  transform: translateY(2px);
+}
+
+.clear:active, .add:active, .mul:active, .del:active, .point:active, .divi:active, .equal:active {
+  box-shadow: 0 2px #5f6680;
+  -webkit-transform: translateY(2px);
+  -ms-transform: translateY(2px);
+  -moz-tranform: translateY(2px);
+  transform: translateY(2px);
+}

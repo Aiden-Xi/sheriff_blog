@@ -47,9 +47,7 @@
 .myUl {
     width: 100%;
     list-style: none;
-    /*background: rgb(71, 3, 175);*/
     display: block;
-    /* make the list items unselectable */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -66,16 +64,21 @@
     padding-left: 30px;
     list-style: none;
     display: block;
+    background: rgb(226, 232, 227);
+}
+
+.myUl li:nth-child(odd) {
+    background: rgb(198, 200, 192);
+}
+
+.myUl li:hover {
+    background: #ddd;
 }
 
 .myUl li.checked {
     background: #888;
     color: #fff;
     text-decoration: line-through;
-}
-
-.myUl li:hover {
-    background: #ddd;
 }
 
 .myUl li.checked::before {
@@ -101,12 +104,5 @@
 .myUl li.list span:hover {
     background: rgb(242, 12, 12);
     transform: scale(1.2);
-}
-
-.myUl li.list:nth-of-type(odd) {
-    background: rgb(226, 232, 227);
-}
-
-.myUl li.list:nth-of-type(even) {
-    background: rgb(198, 200, 192);
+    cursor: pointer;
 }
