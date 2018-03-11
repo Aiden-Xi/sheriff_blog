@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+  </script>
+  <script>
+    $(document).ready(function() {
+      $("button").click(function() {
+        $("p").toggle(1000);
+        // if (is_hide) {
+        //   is_hide = false;
+        //   $("p").hide(1000);
+        // } else {
+        //   is_hide = true;
+        //   $("p").show(1000);
+        // }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <button>隐藏</button>
+  <p>这是个段落，内容比较少。</p>
+  <p>这是另外一个小段落</p>
+</body>
+
+</html>

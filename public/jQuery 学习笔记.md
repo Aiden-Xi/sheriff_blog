@@ -1,0 +1,28 @@
+1. 文档就绪事件。 ready
+
+    ```
+    $(document).ready(function() {
+      // 编写jQuery代码。。。
+    });
+
+    // 简洁写法：
+    $(functiond() {
+      // 编写jQuery代码。。。
+    });
+
+    ```
+
+2. [jQuery选择器](http://www.runoob.com/jquery/jquery-selectors.html)
+
+  - 选取所有元素 $("*")
+  - 选取当前HTML元素  $(this)
+  - 选取class为intro的<p>元素 $("p.intro")
+  - 选取第一个p元素 $("p:first")
+  - 选取第一个 ul 元素的第一个 li 元素  $("ul li:first")
+  - 选取每个 ul 元素的第一个 li 元素 $("ul li:first-child")
+  - 选取带有href属性的元素 $("[href]")
+  - 选取所有target属性值等于'_blank'的 a 元素  $("a[target='_blank']")
+  - 选取所有 target 属性值不等于 "_blank" 的 <a> 元素  $("a[target!='_blank']")
+  - 选取所有 type="button" 的 <input> 元素 和 <button> 元素  $(":button")
+  - 选取偶数位置的 tr 元素   $("tr:even")
+  - 选取奇数位置的 tr 元素   $("tr:odd")
