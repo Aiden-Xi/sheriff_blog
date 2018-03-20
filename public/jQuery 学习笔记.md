@@ -124,4 +124,111 @@
   - css() 设置或返回样式的属性
 
 8. 尺寸
-  - width()
+  - width()  内容宽高
+  - height()  方法设置或返回元素的宽度（不包括内边距、边框或外边距）
+  - innerWidth()  包括padding部分不包括边框的宽高
+  - innerHeight() 方法返回元素的高度（包括内边距）。
+  - outerWidth() outerWidth(true) 带参数是包括margin部分，如果不带参数就是指包含边框宽高， margin部分不包含
+  - outerHeight() outerHeight(true)
+
+  9. 遍历
+    - 向上遍历DOM树，
+    parent() 方法返回被选元素的直接父元素。该方法只会向上一级对 DOM 树进行遍历.
+    parents(), 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素.
+    parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素
+
+    - 向下遍历DOM树
+    children() 方法返回被选元素的所有直接子元素。
+    find() 方法返回被选元素的后代元素，一路向下直到最后一个后代。
+
+10. 同胞（siblings）
+    - siblings()  方法返回被选元素的所有同胞元素.添加参数，可以进行过滤。
+    - next()  方法返回被选元素的下一个同胞元素。该方法只返回一个元素。
+    - nextAll() 方法返回被选元素的所有跟随的同胞元素, 可以添加参数过滤筛选。
+    - nextUntil() 方法返回介于两个给定参数之间的所有跟随的同胞元素。
+
+    方法的工作方式与上面的方法类似，只不过方向相反而已：它们返回的是前面的同胞元素（在 DOM 树中沿着同胞之前元素遍历，而不是之后元素遍历）。
+    - prev()
+    - prevAll()
+    - prevUntil()
+
+11. 过滤
+    - first() 方法返回被选元素的首个元素。 可以添加参数，过滤。
+    - last() 方法返回被选元素的最后一个元素。 可以添加参数，过滤。
+    - eq() 方法返回被选元素中带有指定索引号的元素。索引号是从 0 开始的。
+    - filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。
+    - not() 方法返回不匹配标准的所有元素。
+    
+12. 选择器
+    - :first-child	$("p:first-child")	属于其父元素的第一个子元素的所有 p 元素
+    - :first-of-type	$("p:first-of-type")	属于其父元素的第一个 p 元素的所有 p 元素
+    - :last-child	$("p:last-child")	属于其父元素的最后一个子元素的所有 p 元素
+    - :last-of-type	$("p:last-of-type")	属于其父元素的最后一个 p 元素的所有 p 元素
+    - :nth-child(n)	$("p:nth-child(2)")	属于其父元素的第二个子元素的所有 p 元素
+    - :nth-last-child(n)	$("p:nth-last-child(2)")	属于其父元素的第二个子元素的所有 p 元素，从最后一个子元素开始计数
+    - :nth-of-type(n)	$("p:nth-of-type(2)")	属于其父元素的第二个 p 元素的所有 p 元素
+    - :nth-last-of-type(n)	$("p:nth-last-of-type(2)")	属于其父元素的第二个 p 元素的所有 p 元素，从最后一个子元素开始计数
+    - :only-child	$("p:only-child")	属于其父元素的唯一子元素的所有 p 元素
+    - :only-of-type	$("p:only-of-type")	属于其父元素的特定类型的唯一子元素的所有 p 元素
+    
+    ```
+        1.基本选择器
+        $("#id")            //ID选择器
+        $("div")            //元素选择器
+        $(".classname")     //类选择器
+        $(".classname,.classname1,#id1")     //组合选择器
+        
+        2.层次选择器
+        $("#id>.classname ")    //子元素选择器
+        $("#id .classname ")    //后代元素选择器
+        $("#id + .classname ")    //紧邻下一个元素选择器
+        $("#id ~ .classname ")    //兄弟元素选择器
+        
+        3.过滤选择器(重点)
+        $("li:first")    //第一个li
+        $("li:last")     //最后一个li
+        $("li:even")     //挑选下标为偶数的li
+        $("li:odd")      //挑选下标为奇数的li
+        $("li:eq(4)")    //下标等于4的li
+        $("li:gt(2)")    //下标大于2的li
+        $("li:lt(2)")    //下标小于2的li
+        $("li:not(#runoob)") //挑选除 id="runoob" 以外的所有li
+        
+        3.2内容过滤选择器
+        $("div:contains('Runob')")    // 包含 Runob文本的元素
+        $("td:empty")                 //不包含子元素或者文本的空元素
+        $("div:has(selector)")        //含有选择器所匹配的元素
+        $("td:parent")                //含有子元素或者文本的元素
+        
+        3.3可见性过滤选择器
+        $("li:hidden")       //匹配所有不可见元素，或type为hidden的元素
+        $("li:visible")      //匹配所有可见元素
+        
+        3.4属性过滤选择器
+        $("div[id]")        //所有含有 id 属性的 div 元素
+        $("div[id='123']")        // id属性值为123的div 元素
+        $("div[id!='123']")        // id属性值不等于123的div 元素
+        $("div[id^='qq']")        // id属性值以qq开头的div 元素
+        $("div[id$='zz']")        // id属性值以zz结尾的div 元素
+        $("div[id*='bb']")        // id属性值包含bb的div 元素
+        $("input[id][name$='man']") //多属性选过滤，同时满足两个属性的条件的元素
+        
+        3.5状态过滤选择器
+        $("input:enabled")    // 匹配可用的 input
+        $("input:disabled")   // 匹配不可用的 input
+        $("input:checked")    // 匹配选中的 input
+        $("option:selected")  // 匹配选中的 option
+        
+        4.表单选择器
+        $(":input")      //匹配所有 input, textarea, select 和 button 元素
+        $(":text")       //所有的单行文本框，$(":text") 等价于$("[type=text]")，推荐使用$("input:text")效率更高，下同
+        $(":password")   //所有密码框
+        $(":radio")      //所有单选按钮
+        $(":checkbox")   //所有复选框
+        $(":submit")     //所有提交按钮
+        $(":reset")      //所有重置按钮
+        $(":button")     //所有button按钮
+        $(":file")       //所有文件域
+    ```
+    
+    
