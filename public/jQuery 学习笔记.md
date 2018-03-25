@@ -231,4 +231,33 @@
         $(":file")       //所有文件域
     ```
     
+13. jQuery效果方法
+    - animate() 对被选元素使用自定义动画
+    - clearQueue() 对被选元素移除所有未执行排队函数（任未执行）
+    - delay() 对被选元素所有派对函数设置延迟
+    - dequeue()  移除下一个执行函数，但是函数继续执行
+    - fadeIn() 逐渐改变被选元素的不透明度，由隐藏到可见
+    - fadeOut() 逐渐改变被选元素的不透明度，由可见到隐藏
+    - fadeTo() 把被选元素透明度逐渐改变为被选透明度
+    - fadeToggle() 在fadeIn 和 fadeOut之间进行切换
+    - finish() 对被选元素停止、移除并且完成所有排队动画
+    - hide() 隐藏被选元素
+    - queue() 显示被选元素的队列
+    - show() 显示被选元素
+    - slideDown() 通过被选元素的高度来控制元素滑动
+    - slideToggle() 在slideDown  和 slideUp之间进行切换
+    - stop() 停止被选元素上，当前正在运行的动画
+    - toggle() 在hide 和 show 之间进行切换
+       
+14. [HTML / CSS 方法](http://www.runoob.com/jquery/jquery-ref-html.html)
+   
+15. [jQuery遍历方法](http://www.runoob.com/jquery/jquery-ref-traversing.html)
+        
+    
+    
+        
+        
+        
+        
+    
     
