@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello Word!</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="hello_word.css">
+</head>
+<body>
+<div id="app">
+    <p>{{ message }}</p>
+    <!-- 第一种使用v-html的方法，包含当前指定的html的元素里面的内容会被完全替换 -->
+    <div class="div2">士大夫撒地方<div v-html="rawHtml">tttttttt</div></div>
+    
+    <!-- 第二种v-html使用方法，需要包一个其他的元素 -->
+    <div class="div3">Using text desction: <span v-html="rawHtml2" :click="clickSpan"></span></div>
+</div>
+<script src="hello_word.js"></script>
+</body>
+</html>
