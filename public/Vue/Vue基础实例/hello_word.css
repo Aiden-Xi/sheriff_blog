@@ -5,3 +5,10 @@
 .div2 {
     color: yellow;
 }
+.bind {
+    color: aqua;
+}
+
+.active {
+    font-size: 3em;
+}

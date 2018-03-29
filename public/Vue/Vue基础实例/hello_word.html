@@ -19,6 +19,9 @@
 
     <!-- 第二种v-html使用方法，需要包一个其他的元素 -->
     <div class="div3">Using text desction: <span v-html="rawHtml2" @click="clickSpan()"></span></div>
+
+    <!-- v-bind 的缩写 -->
+    <div class="bind"><a :class="{active: isActive}">{{ title }}</a></div>
 </div>
 <script src="hello_word.js"></script>
 </body>
