@@ -5,3 +5,7 @@
 .div2 {
     color: yellow;
 }
+
+#app2 > h2 {
+    color: aqua;
+}

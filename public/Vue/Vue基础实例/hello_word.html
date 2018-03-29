@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hello Word</title>
+    <!-- Vue - cdn -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="hello_word.css">
 </head>
@@ -19,7 +20,19 @@
 
     <!-- 第二种v-html使用方法，需要包一个其他的元素 -->
     <div class="div3">Using text desction: <span v-html="rawHtml2" @click="clickSpan()"></span></div>
+    
+    <!--计算属性-->
+    <div class="div4">
+        <p>Origin message: {{ message }}</p>
+        <p>Computed reverse message: {{ reverseMessage }}</p>
+        <p @click="changeComputedMessage($event)">请点击我，改变计算属性的值</p>
+    </div>
+    
+    <div id="app2">
+        <h2 @click="changeColor($event)" :style="{color: clickColor}">watch和computed的比较实例</h2>
+    </div>
 </div>
+
 <script src="hello_word.js"></script>
 </body>
 </html>
