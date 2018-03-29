@@ -5,10 +5,7 @@
 .div2 {
     color: yellow;
 }
-.bind {
-    color: aqua;
-}
 
-.active {
-    font-size: 3em;
+#app2 > h2 {
+    color: aqua;
 }

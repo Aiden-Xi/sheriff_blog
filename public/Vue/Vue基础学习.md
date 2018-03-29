@@ -1,13 +1,13 @@
 1. 在引用数据的是，相关代码需要填写在body里面。
 2. Vue里面的指令带有 'v-'开头。
 3. 不要在选项属性或回调上使用箭头函数
-```
- 不要在选项属性或回调上使用箭头函数，比如 created: () => console.log(this.a)
-或 vm.$watch('a', newValue => this.myMethod())。
-因为箭头函数是和父级上下文绑定在一起的，this 不会是如你所预期的 Vue 实例，
-经常导致 Uncaught TypeError: Cannot read property of undefined 或
-Uncaught TypeError: this.myMethod is not a function 之类的错误。
- ```
+    ```
+    不要在选项属性或回调上使用箭头函数，比如 created: () => console.log(this.a)
+    或 vm.$watch('a', newValue => this.myMethod())。
+    因为箭头函数是和父级上下文绑定在一起的，this 不会是如你所预期的 Vue 实例，
+    经常导致 Uncaught TypeError: Cannot read property of undefined 或
+    Uncaught TypeError: this.myMethod is not a function 之类的错误。
+    ```
 
 4. [Vue生命周期图示](https://cn.vuejs.org/v2/guide/instance.html)
 
@@ -33,3 +33,7 @@ Uncaught TypeError: this.myMethod is not a function 之类的错误。
     <!-- 缩写 -->
     <a @click="doSomething">...</a>
     ```
+
+6. 计算属性和监听器
+    - methods 和 watch/computed 对比 [对比链接](https://blog.csdn.net/yuwenshi12/article/details/78561372)
+
