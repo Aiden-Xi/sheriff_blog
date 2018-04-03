@@ -4,7 +4,14 @@ new Vue({
         message: 'Hello Word!!!',
         rawHtml: '<span style="color: #fe23e3;">生命周期3333</span>',
         rawHtml2: '<span style="font-size: 3em; color: #3e8e41;">生命周期444444</span>',
-        clickColor: 'aqua'
+        clickColor: 'aqua',
+        isTrue: undefined,
+        items: [
+            {message: '222222'},
+            {message: 'sss33333sss'},
+            {message: 'ss444444ssss'}
+        ],
+        numbers: [1,2,3,4,5,6,7]
     },
     computed: {
         //  计算属性的get方法
@@ -15,6 +22,9 @@ new Vue({
             set: function (val) {
                 this.message = val.split('').reverse().join('')
             }
+        },
+        evenNumbers: function () {
+            return this.numbers.filter(function (value) { return value % 2 === 0})
         }
     },
     methods: {

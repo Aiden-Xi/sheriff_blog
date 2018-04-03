@@ -31,6 +31,27 @@
     <div id="app2">
         <h2 @click="changeColor($event)" :style="{color: clickColor}">watch和computed的比较实例</h2>
     </div>
+    
+    <!-- 条件渲染实例 -->
+    <div class="app3">
+        <h2 v-if="isTrue">this is true input content</h2>
+        <h2 v-else>this is false input content</h2>
+    </div>
+    
+    <!-- 列表渲染实例 -->
+    <div class="app4">
+        <ul>
+            <li v-for="(item, index) in items">This is {{ index+1 }}, message: {{ item.message }}</li>
+        </ul>
+    </div>
+    
+    <!-- 显示过滤、排序结果 -->
+    <div class="app5">
+        <ul>
+            <li v-for="n in evenNumbers">{{ n }}</li>
+        </ul>
+    </div>
+    
 </div>
 
 <script src="hello_word.js"></script>

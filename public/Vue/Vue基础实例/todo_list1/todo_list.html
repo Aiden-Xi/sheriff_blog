@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODO_LIST</title>
+    <!-- Vue - cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="todo_list.css">
+</head>
+<body>
+<div id="todo-list-example">
+    <input type="text" v-model="newTodoText" @keyup.enter="addNewTodo" placeholder="Add a todo">
+    <ul>
+        <li is="todo-item" v-for="(todo, index) in todos" :key="todo.id" :title="todo.title"
+            @remove="todos.splice(index, 1)"></li>
+    </ul>
+</div>
+
+<script type="x-template" id="template">
+    <li>
+        {{ title }}
+        <button @click="$emit('remove')">X</button>
+    </li>
+</script>
+
+<script>
+    Vue.component('todo-item', {
+        template: "#template",
+        props: ['title']
+    })
+
+    new Vue({
+        el: "#todo-list-example",
+        data: {
+            newTodoText: '',
+            todos: [
+                {
+                    id: 1,
+                    title: 'Do the dishes',
+                },
+                {
+                    id: 2,
+                    title: 'Take out the trash',
+                },
+                {
+                    id: 3,
+                    title: 'Mow the lawn'
+                }
+            ],
+            nextTodoId: 4
+        },
+        methods: {
+            addNewTodo: function () {
+                if (!this.newTodoText.length > 0) {
+                    alert('请输入内容')
+                    return
+                }
+                this.todos.push({
+                    id: this.nextTodoId++,
+                    title: this.newTodoText
+                })
+                this.newTodoText = ''
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
