@@ -108,7 +108,6 @@
     </div>
     
     <!-- 使用v-for 和 v-model 一起使用 -->
-    
     <div class="app11">
         <select v-model="selected2">
             <option value="" v-for="(option, index) in options" :value="option.value" :disabled="index===0">
@@ -116,6 +115,23 @@
             </option>
         </select>
         <span>Selected: {{ selected2 }}</span>
+    </div>
+    
+    <!-- 修饰符  .lazy  .number   .trim -->
+    <div class="app12">
+        <input v-model.lazy ="lazy_msg1">
+        <label class="lable_xiushi">input value: {{ lazy_msg1 }}</label>
+        <br>
+    
+        <input type= "number" v-model.number ="lazy_msg2">
+        <label class="lable_xiushi">input value: {{ lazy_msg2 }}</label>
+        <br>
+    
+        <input v-model.trim ="lazy_msg3">
+        <label class="lable_xiushi">input value: {{ lazy_msg3 }}</label>
+        <br>
+        
+        
     </div>
 
 </div>

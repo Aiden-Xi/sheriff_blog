@@ -22,7 +22,10 @@ var vm = new Vue({
             { text: 'One', value: 'A' },
             { text: 'Two', value: 'B' },
             { text: 'Three', value: 'C' }
-        ]
+        ],
+        lazy_msg1: '',
+        lazy_msg2: '',
+        lazy_msg3: ''
     },
     computed: {
         //  计算属性的get方法
