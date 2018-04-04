@@ -1,4 +1,4 @@
-new Vue({
+var vm = new Vue({
     el: '#app',
     data: {
         message: 'Hello Word!!!',
@@ -11,7 +11,18 @@ new Vue({
             {message: 'sss33333sss'},
             {message: 'ss444444ssss'}
         ],
-        numbers: [1,2,3,4,5,6,7]
+        numbers: [1, 2, 3, 4, 5, 6, 7],
+        checked: true,
+        checkedNames: [],
+        picked: 'One',
+        selected: '',
+        selected2: '',
+        options: [
+            { text: '请选择', value: '' },
+            { text: 'One', value: 'A' },
+            { text: 'Two', value: 'B' },
+            { text: 'Three', value: 'C' }
+        ]
     },
     computed: {
         //  计算属性的get方法
@@ -24,7 +35,9 @@ new Vue({
             }
         },
         evenNumbers: function () {
-            return this.numbers.filter(function (value) { return value % 2 === 0})
+            return this.numbers.filter(function (value) {
+                return value % 2 === 0
+            })
         }
     },
     methods: {
@@ -36,6 +49,11 @@ new Vue({
         },
         changeColor: function (e) {
             this.clickColor = 'yellow'
+        },
+        even: function (numbers) {
+            return numbers.filter(function (value) {
+                return value % 2 === 0
+            })
         }
     }
 })

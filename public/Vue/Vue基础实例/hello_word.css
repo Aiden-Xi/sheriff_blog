@@ -9,3 +9,11 @@
 #app2 > h2 {
     color: aqua;
 }
+
+.v-for-template {
+    background-color: bisque;
+}
+
+.v-for-template .divider {
+    color: #a5a31a;
+}

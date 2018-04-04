@@ -14,8 +14,16 @@
 <div id="todo-list-example">
     <input type="text" v-model="newTodoText" @keyup.enter="addNewTodo" placeholder="Add a todo">
     <ul>
+        <!-- 第一种方法 -->
         <li is="todo-item" v-for="(todo, index) in todos" :key="todo.id" :title="todo.title"
+            :class="{complete: todo.isComplete}"
             @remove="todos.splice(index, 1)"></li>
+        
+        <!-- 第二种方法 -->
+        <!--<li v-for="(todo, index) in todos" :key="todo.id" :class="{complete: todo.isComplete}">-->
+        <!--{{ todo.title }}-->
+        <!--<button @click="clear(index)">X</button>-->
+        <!--</li>-->
     </ul>
 </div>
 
@@ -29,7 +37,7 @@
 <script>
     Vue.component('todo-item', {
         template: "#template",
-        props: ['title']
+        props: ['title', 'isComplete']
     })
 
     new Vue({
@@ -40,14 +48,17 @@
                 {
                     id: 1,
                     title: 'Do the dishes',
+                    isComplete: true,
                 },
                 {
                     id: 2,
                     title: 'Take out the trash',
+                    isComplete: false,
                 },
                 {
                     id: 3,
-                    title: 'Mow the lawn'
+                    title: 'Mow the lawn',
+                    isComplete: false,
                 }
             ],
             nextTodoId: 4
@@ -63,6 +74,12 @@
                     title: this.newTodoText
                 })
                 this.newTodoText = ''
+            },
+            todoComplete: function () {
+                alert('asdfasdf')
+            },
+            clear: function (index) {
+                this.todos.splice(index, 1)
             }
         }
     })

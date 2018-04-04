@@ -17,7 +17,7 @@
     <div class="div2">士大夫撒地方
         <div v-html="rawHtml">tttttttt</div>
     </div>
-
+    
     <!-- 第二种v-html使用方法，需要包一个其他的元素 -->
     <div class="div3">Using text desction: <span v-html="rawHtml2" @click="clickSpan()"></span></div>
     
@@ -51,7 +51,73 @@
             <li v-for="n in evenNumbers">{{ n }}</li>
         </ul>
     </div>
+    <div id="app6">
+        <ul>
+            <li v-for="n in even(numbers)">{{ n }}</li>
+        </ul>
+    </div>
     
+    <!-- v-for 和 template组合使用 -->
+    <ul class="v-for-template">
+        <template v-for="item in items">
+            <li>{{ item.message }}</li>
+            <li class="divider">当前li的类名是divider</li>
+        </template>
+    </ul>
+    
+    <!-- v-model 单选框 -->
+    <div class="app7">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+    </div>
+    
+    <!-- 复选框 -->
+    <div class="app8">
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+    </div>
+    
+    <!-- 单选按钮 -->
+    <div class="app9">
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>Picked: {{ picked }}</span>
+    </div>
+    
+    <!-- 选择框 -->
+    <div class="app10">
+        <p style="{word-break: break-all}">如果 v-model 表达式的初始值未能匹配任何选项， select 元素将被渲染为“未选中”状态。
+            在 iOS 中，这会使用户无法选择第一个选项。因为这样的情况下，iOS 不会触发 change
+            事件。因此，更推荐像上面这样提供一个值为空的禁用选项。</p>
+        <select v-model="selected">
+            <option disabled value="">请选择</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+    </div>
+    
+    <!-- 使用v-for 和 v-model 一起使用 -->
+    
+    <div class="app11">
+        <select v-model="selected2">
+            <option value="" v-for="(option, index) in options" :value="option.value" :disabled="index===0">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>Selected: {{ selected2 }}</span>
+    </div>
+
 </div>
 
 <script src="hello_word.js"></script>
