@@ -295,6 +295,91 @@
     - .number - 如果想自动将用户的输入值转为数值类型，可以给 v-model 添加 number 修饰符
     - .trim - 如果要自动过滤用户输入的首尾空白字符，可以给 v-model 添加 trim 修饰符
     
+19. 组件
+    - 请注意，对于自定义标签的命名 Vue.js 不强制遵循 W3C 规则 (小写，并且包含一个短杠)，尽管这被认为是最佳实践。
+    ```
+       Vue.component('my-component', {
+         // 选项
+       })
+       这里可以看出 自定义的组件名称使用小写字母， 并且使用短杆
+    ```
+    - 组件在注册之后，便可以作为自定义元素 <my-component></my-component> 在一个实例的模板中使用。注意确保在初始化根实例之前注册组件
+    ```
+        // 注册 - 先注册
+        Vue.component('my-component', {
+          template: '<div>A custom component!</div>'
+        })
+        
+        // 创建根实例
+        new Vue({
+          el: '#example'
+        })
+    ```
+    - 全局注册
+    - 局部注册
+    - DOM 模板解析注意事项<br>
+    **`注意事项：`** <br>
+    ```
+    当使用 DOM 作为模板时 (例如，使用 el 选项来把 Vue 实例挂载到一个已有内容的元素上)，
+    你会受到 HTML 本身的一些限制，因为 Vue 只有在浏览器解析、规范化模板之后才能获取其内容。
+    尤其要注意，像 <ul>、<ol>、<table>、<select> 这样的元素里允许包含的元素有限制，
+    而另一些像 <option> 这样的元素只能出现在某些特定元素的内部。
+    
+    
+    应当注意，如果使用来自以下来源之一的字符串模板，则没有这些限制：
+    1. <script type="text/x-template">
+    2. JavaScript 内联模板字符串
+    3. .vue 组件
+    ```
+    
+20. 组件组合
+    - 父子组件的关系可以总结为 prop 向下传递，事件向上传递。
+    父组件通过 prop 给子组件下发数据，子组件通过事件给父组件发送消息。看看它们是怎么工作的
+    - 使用 Prop 传递数据, 组件实例的作用域是孤立的。这意味着不能 (也不应该) 在子组件的模板内直接引用父组件的数据。
+    父组件的数据需要通过 prop 才能下发到子组件中
+    - [camelCase vs. kebab-case](https://cn.vuejs.org/v2/guide/components.html#camelCase-vs-kebab-case)  在使用模板的时候，千万需要注意这点。
+    ```
+        HTML 特性是不区分大小写的。所以，当使用的不是字符串模板时，camelCase (驼峰式命名) 的 prop 需要转换为相对应的 kebab-case (短横线分隔式命名)：
+        
+        Vue.component('child', {
+          // 在 JavaScript 中使用 camelCase
+          props: ['myMessage'],
+          template: '<span>{{ myMessage }}</span>'
+        })
+        <!-- 在 HTML 中使用 kebab-case -->
+        <child my-message="hello!"></child>
+        如果你使用字符串模板，则没有这些限制。
+    ```
+    - 字面量语法 vs 动态语法
+    - 单项数据流 
+    ``` 
+    解释为什么在子组件的data为什么一定要对应的是function：
+    **注意在 JavaScript 中对象和数组是引用类型，指向同一个内存空间，如果 prop 是一个对象或数组，在子组件内部改变它会影响父组件的状态。**
+    ```
+    - props 验证
+    - 非 Prop 特性
+
+21. 自定义事件 - 子组件向父组件通信。
+    - 使用 v-on 绑定自定义事件
+    - 载荷 (payload) 
+    - 给组件绑定原生事件， 可以使用修饰符 
+    ``` 
+    .native    <my-component v-on:click.native="doTheThing"></my-component>
+     
+     从 2.3.0 起我们重新引入了 .sync 修饰符，但是这次它只是作为一个编译时的语法糖存在。它会被扩展为一个自动更新父组件属性的 v-on 监听器。
+     
+     如下代码
+     
+     <comp :foo.sync="bar"></comp>
+     会被扩展为：
+     
+     <comp :foo="bar" @update:foo="val => bar = val"></comp>
+    ```
+    
+22. 自定义组件的 ```v-model```
+    - 编译作用域 -> 父组件模板的内容在父组件作用域内编译；子组件模板的内容在子组件作用域内编译。
+    - 单个插槽 -> 除非子组件模板包含至少一个 <slot> 插口，否则父组件的内容将会被丢弃。
+    当子组件模板只有一个没有属性的插槽时，父组件传入的整个内容片段将插入到插槽所在的 DOM 位置，并替换掉插槽标签本身。
 
     
 

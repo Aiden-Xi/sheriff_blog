@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Custom Event</title>
+    <!-- Vue - cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{ total }}</p>
+    <!-- increment 就是自定义事件， 这里意思是使用v-on监听当前这个事件，使用$emit可以执行被监听的事件 -->
+    <button-counter @increment="incrementTotal"></button-counter>
+    <button-counter @increment="incrementTotal"></button-counter>
+
+    <div style="{height: 1px; background-color: #ff1b40; text-align: center; padding: 20px 0px}">分割线</div>
+
+    <div class="message-example">
+        <p v-for="message in messages">{{ message }}</p>
+        <message-button @message="handleMessage"></message-button>
+    </div>
+
+</div>
+
+<script>
+    Vue.component('button-counter', {
+        template: '<button @click="incrementCounter">{{ counter }}</button>',
+        data: function () {
+            return {counter: 0}
+        },
+        methods: {
+            incrementCounter: function () {
+                this.counter += 1
+                this.$emit('increment')
+            }
+        }
+    })
+
+    Vue.component('message-button', {
+        template: `
+            <div>
+                <input type="text" v-model="message">
+                <button @click="handleSendMessage">send</button>
+            </div>
+            `,
+        data: function () {
+            return {message: 'test message'}
+        },
+        methods: {
+            handleSendMessage: function () {
+                this.$emit('message', {message: this.message})
+            }
+        }
+    })
+
+    new Vue({
+        el: '#app',
+        data: {
+            total: 0,
+            messages: []
+        },
+        methods: {
+            incrementTotal: function () {
+                this.total += 1
+            },
+            handleMessage: function (payload) {
+                this.messages.push(payload.message)
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

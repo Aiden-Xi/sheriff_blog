@@ -130,11 +130,34 @@
         <input v-model.trim ="lazy_msg3">
         <label class="lable_xiushi">input value: {{ lazy_msg3 }}</label>
         <br>
-        
-        
+    </div>
+
+    <!--
+        Prop传递数据
+        camelCase vs. kebab-case
+    -->
+    <div class="app13">
+        <input type="Number" v-model="my_child_msg">
+        <p>输出这里的变化值: {{ my_child_msg }}</p>
+        <my-child :my-message="my_child_msg"></my-child>
+
+        <p is="my-child-2" :my-message="my_child_msg"></p>
+
+        <p>{{ my_child_msg }}</p>
     </div>
 
 </div>
+
+<script type="x-template" id="my-child-22">
+    <p>标题22222：{{ myMessage }}</p>
+</script>
+
+<script>
+    Vue.component('my-child-2', {
+        template: '#my-child-22',
+        props: ['myMessage']
+    })
+</script>
 
 <script src="hello_word.js"></script>
 </body>

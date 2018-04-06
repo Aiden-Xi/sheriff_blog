@@ -1,3 +1,28 @@
+Vue.component('my-child', {
+    props: {
+        myMessage: {
+            type: Number,
+            default: 4,
+            validator: function(value) {
+                if (value < 10) {
+                    console.warn('请输入正确的数据!!!')
+                    return false
+                }
+                return true
+            },
+            message: '请输入正确的数据！！！'
+        }
+    },
+    template: '<span>标题： {{ myMessage }}</span>'
+})
+
+
+// Vue.component('child', {
+//     // 在 JavaScript 中使用 camelCase
+//     props: ['myMessage'],
+//     template: '<span>标题：{{ myMessage }}</span>'
+// })
+
 var vm = new Vue({
     el: '#app',
     data: {
@@ -18,14 +43,15 @@ var vm = new Vue({
         selected: '',
         selected2: '',
         options: [
-            { text: '请选择', value: '' },
-            { text: 'One', value: 'A' },
-            { text: 'Two', value: 'B' },
-            { text: 'Three', value: 'C' }
+            {text: '请选择', value: ''},
+            {text: 'One', value: 'A'},
+            {text: 'Two', value: 'B'},
+            {text: 'Three', value: 'C'}
         ],
         lazy_msg1: '',
         lazy_msg2: '',
-        lazy_msg3: ''
+        lazy_msg3: '',
+        my_child_msg: null
     },
     computed: {
         //  计算属性的get方法
