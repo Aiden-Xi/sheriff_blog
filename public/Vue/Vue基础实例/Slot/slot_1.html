@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slot_1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!-- 通过父组件控制子组件是否显示 -->
+<div id="app">
+    <button @click="toggleChild">点击按钮隐藏显示子组件</button>
+    <first-child v-if="isShow"></first-child>
+</div>
+
+
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            isShow: true
+        },
+        methods: {
+            toggleChild: function () {
+                this.isShow = !this.isShow
+            }
+        },
+
+        components: {
+            firstChild: {
+                template:
+                    `
+                        <div>这里受父组件控制现实与否</div>
+                    `
+            }
+        }
+    })
+
+
+</script>
+
+</body>
+</html>

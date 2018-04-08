@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slot_2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!-- 子组件控制自己是否显示 -->
+<div id="app">
+    <button @click="toShowChild">显示子组件</button>
+    <first-child></first-child>
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        methods: {
+            toShowChild: function () {
+                if (this.$children[0].tohidden) return
+                this.$children[0].tohidden = true
+            }
+        },
+        components: {
+            firstChild: {
+                template:
+                    `
+                        <div v-if="tohidden"><button @click="toHidden">隐藏当前子组件自己</button></div>
+                    `,
+                data: function () {
+                    return { tohidden: true }
+                },
+                methods: {
+                    toHidden: function () {
+                        this.tohidden = !this.tohidden
+                    }
+                }
+            }
+            
+            
+        }
+    
+    })
+    
+</script>
+
+</body>
+</html>
