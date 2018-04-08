@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slot</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    <first-child>
+        <p>这个是不会显示出来的</p>
+        <p slot="first">因为子组件里面包好了 slot 具名slot</p>
+        <p slot="second">因为子组件里面包好了 slot 具名slot</p>
+        <p>这个是不会显示出来的22222222</p>
+        
+    </first-child>
+</div>
+
+<script>
+    Vue.component('first-child', {
+        template:
+            `
+                <div>
+                    <slot name="first">ssss</slot>
+                    <slot name="second">sss</slot>
+                    <slot></slot>
+                    <p>这里只是站位使用的一个p标签</p>
+                </div>
+            `
+    })
+
+
+    var vm = new Vue({
+        el: '#app',
+    })
+
+</script>
+
+</body>
+</html>
