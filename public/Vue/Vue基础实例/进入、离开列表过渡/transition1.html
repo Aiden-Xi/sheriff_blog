@@ -7,14 +7,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
     <style>
         #demo {
             background-color: #ffeda5;
         }
+        
         .fade-enter-active, .fade-leave-active {
             transition: opacity .5s;
         }
-        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        
+        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+        {
+            opacity: 0;
+        }
+        
+        #demo1 {
+            background-color: #ff5182;
+        }
+        
+        /* 可以设置不同的进入和离开动画 */
+        /* 设置持续时间和动画函数 */
+        .slide-fade-enter-active {
+            transition: all .3s ease;
+        }
+        
+        .slide-fade-leave-active {
+            transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+        
+        .slide-fade-enter, .slide-fade-leave-to
+            /* .slide-fade-leave-active for below version 2.1.8 */
+        {
+            transform: translateX(10px);
             opacity: 0;
         }
     </style>
@@ -27,11 +53,79 @@
     </transition>
 </div>
 
+<div id="demo1">
+    <button @click="isShow = !isShow">Toggle Render</button>
+    <transition name="slide-fade">
+        <p v-if="isShow">hello</p>
+    </transition>
+</div>
+
+<div id="example-3">
+    <button @click="show = !show">
+        Toggle render
+    </button>
+    <transition
+            name="custom-classes-transition"
+            enter-active-class="animated wobble"
+            leave-active-class="animated tada"
+    >
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+
+<div id="example-4">
+    <button @click="show = !show">Toggle</button>
+    <transition @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
+        <p v-if="show">Demo</p>
+    </transition>
+</div>
+
 <script>
     new Vue({
         el: "#demo",
         data: {
             show: true
+        }
+    })
+
+    new Vue({
+        el: '#demo1',
+        data: {
+            isShow: true
+        }
+    })
+
+    new Vue({
+        el: '#example-3',
+        data: {
+            show: true
+        }
+    })
+
+    new Vue({
+        el: '#example-4',
+        data: {
+            show: true
+        },
+        methods: {
+            beforeEnter: function (el) {
+                el.style.opacity = 0
+                el.style.transformOrigin = 'left'
+            },
+            enter: function (el, done) {
+                Velocity(el, {opacity: 1, fontSize: '1.4em'}, {duration: 300})
+                Velocity(el, {fontSize: '1em'}, {complete: done})
+            },
+            leave: function (el, done) {
+                Velocity(el, {translateX: '15px', rotateZ: '50deg'}, {duration: 600})
+                Velocity(el, {rotateZ: '100deg'}, {loop: 2})
+                Velocity(el, {
+                    rotateZ: '45deg',
+                    translateY: '30px',
+                    translateX: '30px',
+                    opacity: 0
+                }, {complete: done})
+            }
         }
     })
 </script>

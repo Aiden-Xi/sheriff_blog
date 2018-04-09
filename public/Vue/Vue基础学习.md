@@ -425,6 +425,62 @@
             3. 如果没有找到 JavaScript 钩子并且也没有检测到 CSS 过渡/动画，DOM 操作 (插入/删除) 在下一帧中立即执行。(注意：此指浏览器逐帧动画机制，和 Vue 的 nextTick 概念不同)
     
          ```
+     - 过渡的类名  
+        ```vue
+           1. v-enter：定义进入过渡的开始状态。在元素被插入时生效，在下一个帧移除。
+           
+           2. v-enter-active：定义过渡的状态。在元素整个过渡过程中作用，在元素被插入时生效，在 transition/animation 完成之后移除。这个类可以被用来定义过渡的过程时间，延迟和曲线函数。
+           
+           3. v-enter-to: 2.1.8版及以上 定义进入过渡的结束状态。在元素被插入一帧后生效 (与此同时 v-enter 被删除)，在 transition/animation 完成之后移除。
+           
+           4. v-leave: 定义离开过渡的开始状态。在离开过渡被触发时生效，在下一个帧移除。
+           
+           5. v-leave-active：定义过渡的状态。在元素整个过渡过程中作用，在离开过渡被触发后立即生效，在 transition/animation 完成之后移除。这个类可以被用来定义过渡的过程时间，延迟和曲线函数。
+           
+           6. v-leave-to: 2.1.8版及以上 定义离开过渡的结束状态。在离开过渡被触发一帧后生效 (与此同时 v-leave 被删除)，在 transition/animation 完成之后移除。
+        ``` 
+     - CSS 动画
+     - 自定义过渡的类名
+        ```vue
+            enter-class
+            enter-active-class
+            enter-to-class (2.1.8+)
+            leave-class
+            leave-active-class
+            leave-to-class (2.1.8+)
+        ```
+     - 同时使用过渡和动画
+     - 显性的过渡持续时间 可以使用transition对应的duration属性定制
+     - JavaScript 钩子 - 当只用 JavaScript 过渡的时候， 在 `enter` 和 `leave` 中，回调函数 done 是必须的 。否则，它们会被同步调用，过渡会立即完成。
+     注意事项： **推荐对于仅使用 JavaScript 过渡的元素添加 v-bind:css="false"，Vue 会跳过 CSS 的检测。这也可以避免过渡过程中 CSS 的影响。**
+     ```vue
+        <transition
+          v-on:before-enter="beforeEnter"
+          v-on:enter="enter"
+          v-on:after-enter="afterEnter"
+          v-on:enter-cancelled="enterCancelled"
+        
+          v-on:before-leave="beforeLeave"
+          v-on:leave="leave"
+          v-on:after-leave="afterLeave"
+          v-on:leave-cancelled="leaveCancelled"
+        >
+          <!-- ... -->
+        </transition>     
+     ```
+     - 初始渲染的过渡
+     
+     - 多个元素的过渡 - 当有相同标签名的元素切换时，需要通过 key 特性设置唯一的值来标记以让 Vue 区分它们，否则 Vue 为了效率只会替换相同标签内部的内容。
+     即使在技术上没有必要，给在 <transition> 组件中的多个元素设置 key 是一个更好的实践。
+     
+     - 过渡模式
+        ```vue
+           in-out：新元素先进行过渡，完成之后当前元素过渡离开。
+           out-in：当前元素先进行过渡，完成之后新元素过渡进入。
+        ```
+     - 多个组件过渡 - 多个组件的过渡简单很多 - 我们不需要使用 key 特性
+     
+        
     
     
 
