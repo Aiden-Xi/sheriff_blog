@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transition3 - 动态过渡</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.bootcss.com/lodash.js/4.16.5/lodash.min.js"></script>
+    <script src="https://cdn.bootcss.com/velocity/2.0.1/velocity.min.js"></script>
+</head>
+<body>
+
+<div id="dynamic-fade-demo" class="demo">
+    Fade In: <input type="range" v-model="fadeInDuration" min="0" :max="maxFadeDuration">
+    Fade Out: <input type="range" v-model="fadeOutDuration" min="0" :max="maxFadeDuration">
+    <transition
+            :css="false"
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @leave="leave"
+    >
+        <p v-if="show">hello</p>
+    </transition>
+    <button
+            v-if="stop"
+            @click="stop = false; show = false"
+    >
+        Start Animating</button>
+    <button
+            v-else
+            @click="stop = true"
+    >
+        Stop it!</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#dynamic-fade-demo',
+        data: {
+            show: true,
+            fadeInDuration: 1000,
+            fadeOutDuration: 1000,
+            maxFadeDuration: 1500,
+            stop: true
+        },
+        //  生命周期方法---生命周期方法----生命周期方法----生命周期方法
+        beforeCreate: function () {
+            console.log('beforeCreate')
+        },
+        created: function () {
+            console.log("created")
+        },
+        beforeMount: function () {
+            console.log("beforeMount")
+        },
+        mounted: function () {
+            console.log("mounted")
+            this.show = false
+        },
+        beforeUpdate: function () {
+            console.log("beforeUpdate")
+        },
+        updated: function () {
+            console.log("updated")
+            console.log("查看这里show的值---", this.show)
+        },
+        beforeDestroy: function () {
+            console.log("beforeDestroy")
+        },
+        destroyed: function () {
+            console.log("destroyed")
+        },
+        //  生命周期方法---生命周期方法----生命周期方法----生命周期方法
+        
+        methods: {
+            beforeEnter: function (el) {
+                el.style.opacity = 0
+            },
+            enter: function (el, done) {
+                var vm = this
+                Velocity(el,
+                    { opacity: 1 },
+                    {
+                        duration: this.fadeInDuration,
+                        complete: function () {
+                            done()
+                            if (!vm.stop) vm.show = false
+                        }
+                    }
+                )
+            },
+            leave: function (el, done) {
+                var vm = this
+                Velocity(el,
+                    { opacity: 0 },
+                    {
+                        duration: this.fadeOutDuration,
+                        complete: function () {
+                            done()
+                            vm.show = true
+                        }
+                    }
+                )
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
