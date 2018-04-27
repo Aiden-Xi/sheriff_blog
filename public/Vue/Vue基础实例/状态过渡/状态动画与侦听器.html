@@ -10,8 +10,33 @@
     <link href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.bootcss.com/lodash.js/4.16.5/lodash.min.js"></script>
     <script src="https://cdn.bootcss.com/velocity/2.0.1/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 </head>
 <body>
-
+    <div id="animated-number-demo">
+        <input type="number" step="20" v-model.number="number">
+        <p>{{ animatedNumber }}</p>
+    </div>
+    
+    <script>
+        new Vue({
+            el: '#animated-number-demo',
+            data: {
+                number: 0,
+                tweenedNumber: 0
+            },
+            
+            computed: {
+                animatedNumber: function () {
+                    return this.tweenedNumber.toFixed(0)
+                }
+            },
+            watch: {
+                number: function (newValue) {
+                    TweenLite.to(this.$data, 0.5, { tweenedNumber: newValue })
+                }
+            }
+        })
+    </script>
 </body>
 </html>
