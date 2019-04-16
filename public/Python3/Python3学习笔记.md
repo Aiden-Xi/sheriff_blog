@@ -305,5 +305,88 @@
     兼容方法实例： 
     https://www.polarxiong.com/archives/Python3-%E6%89%BE%E5%9B%9Esort-%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84cmp%E5%8F%82%E6%95%B0.html
     http://www.runoob.com/python3/python3-number.html   解释cmp移除问题。
-    
+
+18. <font color="red"> 在使用int 除以 int类型的数据时，返回的结果是 float类型的数据     </font>
+
+19. 生成器
+- 通过send 和 next 可以启动生成器函数，但是在使用send启动生成器的时候，send只能接受None参数，如果在启动的时候试图输入别的参数，则会报错。
+```
+>>> def gen():
+...     value = 0
+...     while True:
+...             receive = yield value
+...             if receive == 'e':
+...                     break
+...             value = 'got: %s' % receive
+...
+>>> g = gen()
+>>> g.send('sdf')
+<!-- 错误信息 -->
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't send non-None value to a just-started generator
+```
       
+20. 迭代器被迭代之后，最后会指向空。
+
+21. 不可变类型的对对象在进行 256KB以下的内存分配时，采用的是深拷贝的方式进行的，当某一个改变的时候，会从新给另外一个对象进行内存分配。
+```
+在 C 中如果频繁的调用 malloc 与 free 时,是会产生性能问题的.再加上频繁的分配与释放小块的内存会产生内存碎片. Python 在这里主要干的工作有:
+
+　　如果请求分配的内存在1~256字节之间就使用自己的内存管理系统,否则直接使用 malloc.
+
+　　这里还是会调用 malloc 分配内存,但每次会分配一块大小为256k的大块内存.
+
+　　经由内存池登记的内存到最后还是会回收到内存池,并不会调用 C 的 free 释放掉.以便下次使用.对于简单的Python对象，例如数值、字符串，元组（tuple不允许被更改)采用的是复制的方式(深拷贝?)，也就是说当将另一个变量B赋值给变量A时，虽然A和B的内存空间仍然相同，但当A的值发生变化时，会重新给A分配空间，A和B的地址变得不再相同
+```
+
+22. 变量的作用域
+```
+Python 中，程序的变量并不是在哪个位置都可以访问的，访问权限决定于这个变量是在哪里赋值的。
+
+变量的作用域决定了在哪一部分程序可以访问哪个特定的变量名称。Python的作用域一共有4种，分别是：
+
+L （Local） 局部作用域
+E （Enclosing） 闭包函数外的函数中
+G （Global） 全局作用域
+B （Built-in） 内建作用域
+
+以 L –> E –> G –>B 的规则查找，即：在局部找不到，便会去局部外的局部找（例如闭包），再找不到就会去全局找，再者去内建中找。
+
+x = int(2.9)  # 内建作用域
+ 
+g_count = 0  # 全局作用域
+def outer():
+    o_count = 1  # 闭包函数外的函数中
+    def inner():
+        i_count = 2  # 局部作用域
+
+Python 中只有模块（module），类（class）以及函数（def、lambda）才会引入新的作用域，其它的代码块（如 if/elif/else/、try/except、for/while等）是不会引入新的作用域的，也就是说这些语句内定义的变量，外部也可以访问，如下代码：
+
+>>> if True:
+...  msg = 'I am from Runoob'
+... 
+>>> msg
+'I am from Runoob'
+>>> 
+```
+
+23. global 和 nonlocal关键字 当内部作用域想修改外部作用域的变量时，就要用到global和nonlocal关键字了。
+
+24. <font color="red"> import 路径搜索 </font>
+
+ 一个模块只会被导入一次，不管你执行了多少次import。这样可以防止导入模块被一遍又一遍地执行。
+
+当我们使用import语句的时候，Python解释器是怎样找到对应的文件的呢？
+
+这就涉及到Python的搜索路径，搜索路径是由一系列目录名组成的，Python解释器就依次从这些目录中去寻找所引入的模块。
+
+这看起来很像环境变量，事实上，也可以通过定义环境变量的方式来确定搜索路径。
+
+===============================================================
+
+注意当使用from package import item这种形式的时候，对应的item既可以是包里面的子模块（子包），或者包里面定义的其他名称，比如函数，类或者变量。
+
+import语法会首先把item当作一个包定义的名称，如果没找到，再试图按照一个模块去导入。如果还没找到，恭喜，一个:exc:ImportError 异常被抛出了。
+
+反之，如果使用形如import item.subitem.subsubitem这种导入形式，除了最后一项，都必须是包，而最后一项则可以是模块或者是包，但是不可以是类，函数或者变量的名字。
